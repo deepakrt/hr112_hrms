@@ -1,0 +1,5 @@
+SELECT Flag,Emp_code,fname Emp_name,item_name,Voucher_No,Issue_Request_Date,Quantity_Required, Item_Purpose,Remarks, Qty_Approved_STORE approvedQty,Approval_Date
+FROM `store_material_issue_request` a
+left join store_item_master b on b.ITEM_CODE=a.Item_Code
+left join employee c on c.employee_code=a.Emp_code
+WHERE `Division` = '9' AND `Issue_Request_Date` >= '2020-01-01' order by Voucher_No asc

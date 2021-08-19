@@ -1,0 +1,725 @@
+[10-Aug-2021 22:38:56 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php on line 847. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php:513
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'ini_set(): Head...', '/home/scrumcyb/...', 513, Array)
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php(513): ini_set('session.gc_maxl...', '14400')
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setTimeout(14400)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('timeout', 14400)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(683): yii\web\Application->getSession()
+#13 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#14 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(361): yii\web\User->getIdentity()
+#15 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php(15): yii\base\Component->__get('isGuest')
+#17 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\inventory\controllers\PurchaseController->beforeAction(Object(yii\base\InlineAction))
+#18 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('prequest', Array)
+#19 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('inventory/purch...', Array)
+#20 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#22 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=e3493de770cb02d23d69c0816a116490; _identity=c86418b46a35bb5978ea2bb32f31fa55f31645d6250f308b8b4b3f69a2fb8942a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B%22101%22%2Ctrue%2C2592000%5D%22%3B%7D; eMulazimCookie=bc1fc723e6bccc27a0840b23723f330b36c3f6628708ad70594a9398c69c4942a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22ce189a1cdee3d390f13550ef69d3a180%22%3B%7D; _csrf=8fd77aaa30e1e6ea8b499bb9e75406116d46ec9a9e02e3d9d99256c6f9439d14a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Kl3g3wtzY74zo8dXZr69F-O4bmQ428so%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/dashboard?securekey=OeBKpaOVxGImv51nO4eSbWIwNjAzNzUxY2IzNTQyMzMxMzU0MTUxNjQ1YmQ4ZTVmNDJlMjg3OWZjMGI3ZWYxM2IwMDBjMDNiOTgwMWE3NjAZtf3jhBPoVKfWQ94R9zPS1q0GSGNdqctGVTd%2Fl7G0zQ%3D%3D&securekeyl=ByIiwJBFfVvWTD2UgmtmEGFiMTM4NTQ3NmU0ZTNmYTE2MTQ5NmJkMjE2ZDBmYTM3ZjYxOWRhZmRlNDc5YmM4ZTI0OWNhNzFmN2RjZDQ2YjBV42KG3w4eRKMTA%2FlQ8i8ZE7Qp9bwCi0dgWm80UqyRMQ%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:106.205.134.37',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRKyqMZ9zlUUHnouw64I7wAAAI0',
+    'REDIRECT_SCRIPT_URL' => '/inventory/purchase/prequest',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase/prequest',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRKyqMZ9zlUUHnouw64I7wAAAI0',
+    'SCRIPT_URL' => '/inventory/purchase/prequest',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase/prequest',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '106.205.134.37',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '22530',
+    'REDIRECT_URL' => '/inventory/purchase/prequest',
+    'REDIRECT_QUERY_STRING' => 'securekey=ayFnhJI8UgCCd6gkfR0eIWMyZGZjYzk0ZTU2ZTkzNGRiOWRmMzI3ZDAwNWMyYmUzNzMzMTY1MTU1N2Y0ZGNhZDNhYTRjZjg5ZDhjNTdlODHs%2BzEaCNHSwydIn9jfk%2FZ5kIX%2BGKmvxOpeBfKshZ3csw%3D%3D&securekeyl=lEg8q9upPSQtGkyJDNaB%2F2ZiNTFmY2VmZGZiNTEyOTk2YjNkZjRiNTRkZDgyNWMxNmU3NmYxZGE3MGM4Zjg0ZjUzMGQ0ZTE4ZjU5NzgzMWJOCmhKUFjh5%2BST8%2FJp5zvE9WzwwpU57daw%2FA0PEFsaHA%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=ayFnhJI8UgCCd6gkfR0eIWMyZGZjYzk0ZTU2ZTkzNGRiOWRmMzI3ZDAwNWMyYmUzNzMzMTY1MTU1N2Y0ZGNhZDNhYTRjZjg5ZDhjNTdlODHs%2BzEaCNHSwydIn9jfk%2FZ5kIX%2BGKmvxOpeBfKshZ3csw%3D%3D&securekeyl=lEg8q9upPSQtGkyJDNaB%2F2ZiNTFmY2VmZGZiNTEyOTk2YjNkZjRiNTRkZDgyNWMxNmU3NmYxZGE3MGM4Zjg0ZjUzMGQ0ZTE4ZjU5NzgzMWJOCmhKUFjh5%2BST8%2FJp5zvE9WzwwpU57daw%2FA0PEFsaHA%3D%3D',
+    'REQUEST_URI' => '/inventory/purchase/prequest?securekey=ayFnhJI8UgCCd6gkfR0eIWMyZGZjYzk0ZTU2ZTkzNGRiOWRmMzI3ZDAwNWMyYmUzNzMzMTY1MTU1N2Y0ZGNhZDNhYTRjZjg5ZDhjNTdlODHs%2BzEaCNHSwydIn9jfk%2FZ5kIX%2BGKmvxOpeBfKshZ3csw%3D%3D&securekeyl=lEg8q9upPSQtGkyJDNaB%2F2ZiNTFmY2VmZGZiNTEyOTk2YjNkZjRiNTRkZDgyNWMxNmU3NmYxZGE3MGM4Zjg0ZjUzMGQ0ZTE4ZjU5NzgzMWJOCmhKUFjh5%2BST8%2FJp5zvE9WzwwpU57daw%2FA0PEFsaHA%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1628615336.109776973724365234375,
+    'REQUEST_TIME' => 1628615336,
+    'argv' => [
+        'securekey=ayFnhJI8UgCCd6gkfR0eIWMyZGZjYzk0ZTU2ZTkzNGRiOWRmMzI3ZDAwNWMyYmUzNzMzMTY1MTU1N2Y0ZGNhZDNhYTRjZjg5ZDhjNTdlODHs%2BzEaCNHSwydIn9jfk%2FZ5kIX%2BGKmvxOpeBfKshZ3csw%3D%3D&securekeyl=lEg8q9upPSQtGkyJDNaB%2F2ZiNTFmY2VmZGZiNTEyOTk2YjNkZjRiNTRkZDgyNWMxNmU3NmYxZGE3MGM4Zjg0ZjUzMGQ0ZTE4ZjU5NzgzMWJOCmhKUFjh5%2BST8%2FJp5zvE9WzwwpU57daw%2FA0PEFsaHA%3D%3D',
+    ],
+    'argc' => 1,
+]
+[11-Aug-2021 18:04:43 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php on line 847. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php:513
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'ini_set(): Head...', '/home/scrumcyb/...', 513, Array)
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php(513): ini_set('session.gc_maxl...', '14400')
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setTimeout(14400)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('timeout', 14400)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(683): yii\web\Application->getSession()
+#13 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#14 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(361): yii\web\User->getIdentity()
+#15 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php(15): yii\base\Component->__get('isGuest')
+#17 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\inventory\controllers\PurchaseController->beforeAction(Object(yii\base\InlineAction))
+#18 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#19 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('inventory/purch...', Array)
+#20 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#22 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=172f498c4b62ef08b2a3a4a8644adbeb; _identity=c86418b46a35bb5978ea2bb32f31fa55f31645d6250f308b8b4b3f69a2fb8942a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B%22101%22%2Ctrue%2C2592000%5D%22%3B%7D; eMulazimCookie=1658d031f5fef8daf60f645ae2ef646ce262de6f98cc4b99cc01343b35ad80dda%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%2217b855c6f1c5e532af07ddd1a2abe452%22%3B%7D; _csrf=6fd161075b9b249e9b9b81ce3f1db1709478c1eed995888e9bf95dbd6b84f313a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22pYhfC9aCxSZIAP0LRbrx5dTL0r4LT3uP%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'https://cdhrm.scrumcyber.com/dashboard?securekey=4NTLcMvpecS6sbO%2FatFYWGRhNzgxNDY1YmE5Njg1Y2VlZDAwYzM3YjA5MzRlYWRkODI4OWZkNzA5ZDZkNThjOThmZjJlNDI0NTQ0NjdmYWKugCqP%2BdZFuI9SpNR8wz5EkaO2E%2BKkdh0Kx%2Bdv6GZGfg%3D%3D&securekeyl=FRoW3hnVfHsuTECrOx1J9zVjYTJkM2E0ZDM3NGFlM2M2MWNmNzEzYTM0ZDFhMDZlY2QyMDdiNDQwNzBmODQ1MWYzN2YxZjU3YTIwMzUzYjNUVL4TNhbynV6ll213Ny3iZvmPnGIW7QRJcBln8sloqA%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:117.251.77.194',
+    'HTTP_SEC_CH_UA' => '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
+    'HTTP_SEC_CH_UA_MOBILE' => '?0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_UNIQUE_ID' => 'YRPD48ocGtfEJ4N610-3mgAAAEA',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRPD48ocGtfEJ4N610-3mgAAAEA',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '117.251.77.194',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '65508',
+    'REDIRECT_URL' => '/inventory/purchase',
+    'REDIRECT_QUERY_STRING' => 'securekey=XpE92v%2F6jg2bePvwdidKuzk2NmRhOThlY2MxNGRkYzUxZGFlNmFkZTk0NTM2MmRjNjQ0MGIzYzJkZTk5YTA5ZjU4YzMyMzQyZDFhZjczMGb8nVjYAEz7mciyN0PRp5MIptXk%2Fdq6EldQ0Tg%2Fj%2F2mKw%3D%3D&securekeyl=q2K%2FyJvZ963YkesdQFyvQjYxMDM2ZDUwZjJkOGY3N2MzYTM5OTAxMzg4MzIyMDA0OTMwMGM2OGNjOWI5ZWNlYjhlOGMxYzRkMDNmYTJkM2Lo4TP%2F3FAqOodYoURK2raXG5uxd2PARNN4QHTRj2NdTw%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=XpE92v%2F6jg2bePvwdidKuzk2NmRhOThlY2MxNGRkYzUxZGFlNmFkZTk0NTM2MmRjNjQ0MGIzYzJkZTk5YTA5ZjU4YzMyMzQyZDFhZjczMGb8nVjYAEz7mciyN0PRp5MIptXk%2Fdq6EldQ0Tg%2Fj%2F2mKw%3D%3D&securekeyl=q2K%2FyJvZ963YkesdQFyvQjYxMDM2ZDUwZjJkOGY3N2MzYTM5OTAxMzg4MzIyMDA0OTMwMGM2OGNjOWI5ZWNlYjhlOGMxYzRkMDNmYTJkM2Lo4TP%2F3FAqOodYoURK2raXG5uxd2PARNN4QHTRj2NdTw%3D%3D',
+    'REQUEST_URI' => '/inventory/purchase?securekey=XpE92v%2F6jg2bePvwdidKuzk2NmRhOThlY2MxNGRkYzUxZGFlNmFkZTk0NTM2MmRjNjQ0MGIzYzJkZTk5YTA5ZjU4YzMyMzQyZDFhZjczMGb8nVjYAEz7mciyN0PRp5MIptXk%2Fdq6EldQ0Tg%2Fj%2F2mKw%3D%3D&securekeyl=q2K%2FyJvZ963YkesdQFyvQjYxMDM2ZDUwZjJkOGY3N2MzYTM5OTAxMzg4MzIyMDA0OTMwMGM2OGNjOWI5ZWNlYjhlOGMxYzRkMDNmYTJkM2Lo4TP%2F3FAqOodYoURK2raXG5uxd2PARNN4QHTRj2NdTw%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1628685283.2476270198822021484375,
+    'REQUEST_TIME' => 1628685283,
+    'argv' => [
+        'securekey=XpE92v%2F6jg2bePvwdidKuzk2NmRhOThlY2MxNGRkYzUxZGFlNmFkZTk0NTM2MmRjNjQ0MGIzYzJkZTk5YTA5ZjU4YzMyMzQyZDFhZjczMGb8nVjYAEz7mciyN0PRp5MIptXk%2Fdq6EldQ0Tg%2Fj%2F2mKw%3D%3D&securekeyl=q2K%2FyJvZ963YkesdQFyvQjYxMDM2ZDUwZjJkOGY3N2MzYTM5OTAxMzg4MzIyMDA0OTMwMGM2OGNjOWI5ZWNlYjhlOGMxYzRkMDNmYTJkM2Lo4TP%2F3FAqOodYoURK2raXG5uxd2PARNN4QHTRj2NdTw%3D%3D',
+    ],
+    'argc' => 1,
+]
+[15-Aug-2021 16:05:44 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php on line 847. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php:513
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'ini_set(): Head...', '/home/scrumcyb/...', 513, Array)
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php(513): ini_set('session.gc_maxl...', '14400')
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setTimeout(14400)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('timeout', 14400)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(683): yii\web\Application->getSession()
+#13 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#14 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(361): yii\web\User->getIdentity()
+#15 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php(15): yii\base\Component->__get('isGuest')
+#17 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\inventory\controllers\PurchaseController->beforeAction(Object(yii\base\InlineAction))
+#18 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#19 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('inventory/purch...', Array)
+#20 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#22 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=960605e85625a06fbe670f1661e97074; _identity=c86418b46a35bb5978ea2bb32f31fa55f31645d6250f308b8b4b3f69a2fb8942a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B%22101%22%2Ctrue%2C2592000%5D%22%3B%7D; _csrf=06551be85049f2bf5b4320f683c7cfce9d544d2665c9e0d9f57e7a1afadae37ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22va3pGfoxDm4byKtVuH6JN5EMGXcm6yZy%22%3B%7D; eMulazimCookie=da365d303ec4fffc76e25f724b797ee1982898882803cf6ea03f1172c10de981a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%228146cda8a613fc61f4cdccfdff10225b%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/dashboard?securekey=RpDwd96aLU8ezXzMrEcQATFjZTYzY2M4NTI4OTVjMDUyYmM2ODliNmNlZTYzMWRmNThhYzFkOWQwMmNmZDg5YzJkNzVkZWFmM2I2MDAwYTLxMqMSj1tvR81uzOlaHoQvM9OLT4%2BvWmKU4WFaANGXpw%3D%3D&securekeyl=NOs2dVuRSQpMlHr7qmiEVTgyNzAxNDMyM2JkZWFiNzI2ZDY2NWI3YTdhOTU3NDc5NmY5ODRhNmE4NmJiMmJkYTZmMGFkZmY1Yzg4MjE4YzVh0v%2FhMs1bPPwu8vXVUX5SFdHryvG78FAfLLM8VdBhOg%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:171.48.110.140',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRjuAA4tN6GkxV-Xh3yM-AAAAMM',
+    'REDIRECT_SCRIPT_URL' => '/inventory/purchase',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRjuAA4tN6GkxV-Xh3yM-AAAAMM',
+    'SCRIPT_URL' => '/inventory/purchase',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '171.48.110.140',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '54740',
+    'REDIRECT_URL' => '/inventory/purchase',
+    'REDIRECT_QUERY_STRING' => 'securekey=nvQ619lXP8jkkkmOR0ivozhmNzEyMDQ3ZGQ0OWY2MjA2NGM0NjY4Nzg3NTdmNTM1M2U0NWI2NjRiYzZiNTZmNDQ2NjhmZTM5MjNhODNjNGYi8YzX0Gn9ndg%2BqAljOJkQ5nq2STUbAXvGhofWrDHxkA%3D%3D&securekeyl=24QAgycirp8tzt2yg8Nz2TU2NTY1Yzc5YWQ5MDhiNjhhZTBjYTNiY2VjZWZjNDk3M2JiYTMyODU3ZjgzM2ZmYjQyMTU3MDUyOThmOWRjYjcZMMYRGDFmiCR95xXtiS09Nal0CUvkHKWZQGbM3EwAgQ%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=nvQ619lXP8jkkkmOR0ivozhmNzEyMDQ3ZGQ0OWY2MjA2NGM0NjY4Nzg3NTdmNTM1M2U0NWI2NjRiYzZiNTZmNDQ2NjhmZTM5MjNhODNjNGYi8YzX0Gn9ndg%2BqAljOJkQ5nq2STUbAXvGhofWrDHxkA%3D%3D&securekeyl=24QAgycirp8tzt2yg8Nz2TU2NTY1Yzc5YWQ5MDhiNjhhZTBjYTNiY2VjZWZjNDk3M2JiYTMyODU3ZjgzM2ZmYjQyMTU3MDUyOThmOWRjYjcZMMYRGDFmiCR95xXtiS09Nal0CUvkHKWZQGbM3EwAgQ%3D%3D',
+    'REQUEST_URI' => '/inventory/purchase?securekey=nvQ619lXP8jkkkmOR0ivozhmNzEyMDQ3ZGQ0OWY2MjA2NGM0NjY4Nzg3NTdmNTM1M2U0NWI2NjRiYzZiNTZmNDQ2NjhmZTM5MjNhODNjNGYi8YzX0Gn9ndg%2BqAljOJkQ5nq2STUbAXvGhofWrDHxkA%3D%3D&securekeyl=24QAgycirp8tzt2yg8Nz2TU2NTY1Yzc5YWQ5MDhiNjhhZTBjYTNiY2VjZWZjNDk3M2JiYTMyODU3ZjgzM2ZmYjQyMTU3MDUyOThmOWRjYjcZMMYRGDFmiCR95xXtiS09Nal0CUvkHKWZQGbM3EwAgQ%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629023744.4035871028900146484375,
+    'REQUEST_TIME' => 1629023744,
+    'argv' => [
+        'securekey=nvQ619lXP8jkkkmOR0ivozhmNzEyMDQ3ZGQ0OWY2MjA2NGM0NjY4Nzg3NTdmNTM1M2U0NWI2NjRiYzZiNTZmNDQ2NjhmZTM5MjNhODNjNGYi8YzX0Gn9ndg%2BqAljOJkQ5nq2STUbAXvGhofWrDHxkA%3D%3D&securekeyl=24QAgycirp8tzt2yg8Nz2TU2NTY1Yzc5YWQ5MDhiNjhhZTBjYTNiY2VjZWZjNDk3M2JiYTMyODU3ZjgzM2ZmYjQyMTU3MDUyOThmOWRjYjcZMMYRGDFmiCR95xXtiS09Nal0CUvkHKWZQGbM3EwAgQ%3D%3D',
+    ],
+    'argc' => 1,
+]
+[15-Aug-2021 18:17:42 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php on line 847. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: ini_set(): Headers already sent. You cannot change the session module's ini settings at this time in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php:513
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'ini_set(): Head...', '/home/scrumcyb/...', 513, Array)
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Session.php(513): ini_set('session.gc_maxl...', '14400')
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setTimeout(14400)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('timeout', 14400)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(683): yii\web\Application->getSession()
+#13 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#14 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/User.php(361): yii\web\User->getIdentity()
+#15 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/scrumcyb/public_html/cdhrm/modules/inventory/controllers/PurchaseController.php(15): yii\base\Component->__get('isGuest')
+#17 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\inventory\controllers\PurchaseController->beforeAction(Object(yii\base\InlineAction))
+#18 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('rstatus', Array)
+#19 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('inventory/purch...', Array)
+#20 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#22 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => '_identity=c86418b46a35bb5978ea2bb32f31fa55f31645d6250f308b8b4b3f69a2fb8942a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B%22101%22%2Ctrue%2C2592000%5D%22%3B%7D; PHPSESSID=0d5b2f581f4e43981d6ff1a3b2c29f09; _csrf=be5c6fd12f739f5b4af20e0a38649204e6ff857a39ca327f4ae100408998f5bea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2214bP6d2njcmjWQ6D15AU_8ifOVGrYRDt%22%3B%7D; eMulazimCookie=c7b005ff4a47af2d2ce38ad9753190a73688dbe9220a4f8371b5106310e01460a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22bcbed210e196b792b35209546598dd65%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/inventory/default/rstatus?securekey=kGIcaWWl8DJMMEzzeIJo0zk3OTBhODkyZDg2Yzg2ZWJjOTQ5MmUwMTE5NThmNmY5NzYyMjkzNzU0Mjg1OGY3N2E3ZGEyYmVmYWUwMGQyYTEvOowOAlOremYLky2hyUNC2T4gzvCaH3wXOQBPBzSXSQ%3D%3D&securekeyl=Rjy4RKZjDWAZyeK9%2B8qJRDc5OGZkMjgzN2FiZDY0MDNlNDFiODhiMjM4NDRjNmVjMzE3N2Y2OWRmOGY2ZTU4NDc0NTE1NWVlYzRhZWZlMGU6LRmDFCHWv%2BrcUcIo3d%2Bo%2BUX9k8e74JEVyxBqnJsXRg%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:171.48.110.140',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRkM7sYJd8Q9lO7u922CDQAAAZc',
+    'REDIRECT_SCRIPT_URL' => '/inventory/purchase/rstatus',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase/rstatus',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRkM7sYJd8Q9lO7u922CDQAAAZc',
+    'SCRIPT_URL' => '/inventory/purchase/rstatus',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/inventory/purchase/rstatus',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '171.48.110.140',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '17474',
+    'REDIRECT_URL' => '/inventory/purchase/rstatus',
+    'REDIRECT_QUERY_STRING' => 'securekey=rz0O45HGr9UYgZ%2FvQippOWM2OGE2MzE5ZWU0NGVjYTg2MTdiNGYzYThiYWIyYzY3ZjhhNmRjYmZkNDMxM2Q0YWM0ZmQ0NzgwOWIwZjVjNjKKss4ps9dOtGYURREt9VLv8updmV8xQMr3AFBL0DmUAA%3D%3D&securekeyl=Dy1wK5QNB%2FPHST2MCCINhzJlN2IzOWM4ZmZiM2U5NGQ0ZmU1MmFjMTk0NzFkZDQxY2M3ZGY5YzM5OWQxMzc1ZGU0YTQ1NzUyOGVkOTI3M2ELUaMAGURNf%2BytoqRv9AzUh4z2GD82Ul1X4%2FFqqycvQQ%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=rz0O45HGr9UYgZ%2FvQippOWM2OGE2MzE5ZWU0NGVjYTg2MTdiNGYzYThiYWIyYzY3ZjhhNmRjYmZkNDMxM2Q0YWM0ZmQ0NzgwOWIwZjVjNjKKss4ps9dOtGYURREt9VLv8updmV8xQMr3AFBL0DmUAA%3D%3D&securekeyl=Dy1wK5QNB%2FPHST2MCCINhzJlN2IzOWM4ZmZiM2U5NGQ0ZmU1MmFjMTk0NzFkZDQxY2M3ZGY5YzM5OWQxMzc1ZGU0YTQ1NzUyOGVkOTI3M2ELUaMAGURNf%2BytoqRv9AzUh4z2GD82Ul1X4%2FFqqycvQQ%3D%3D',
+    'REQUEST_URI' => '/inventory/purchase/rstatus?securekey=rz0O45HGr9UYgZ%2FvQippOWM2OGE2MzE5ZWU0NGVjYTg2MTdiNGYzYThiYWIyYzY3ZjhhNmRjYmZkNDMxM2Q0YWM0ZmQ0NzgwOWIwZjVjNjKKss4ps9dOtGYURREt9VLv8updmV8xQMr3AFBL0DmUAA%3D%3D&securekeyl=Dy1wK5QNB%2FPHST2MCCINhzJlN2IzOWM4ZmZiM2U5NGQ0ZmU1MmFjMTk0NzFkZDQxY2M3ZGY5YzM5OWQxMzc1ZGU0YTQ1NzUyOGVkOTI3M2ELUaMAGURNf%2BytoqRv9AzUh4z2GD82Ul1X4%2FFqqycvQQ%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629031662.0632998943328857421875,
+    'REQUEST_TIME' => 1629031662,
+    'argv' => [
+        'securekey=rz0O45HGr9UYgZ%2FvQippOWM2OGE2MzE5ZWU0NGVjYTg2MTdiNGYzYThiYWIyYzY3ZjhhNmRjYmZkNDMxM2Q0YWM0ZmQ0NzgwOWIwZjVjNjKKss4ps9dOtGYURREt9VLv8updmV8xQMr3AFBL0DmUAA%3D%3D&securekeyl=Dy1wK5QNB%2FPHST2MCCINhzJlN2IzOWM4ZmZiM2U5NGQ0ZmU1MmFjMTk0NzFkZDQxY2M3ZGY5YzM5OWQxMzc1ZGU0YTQ1NzUyOGVkOTI3M2ELUaMAGURNf%2BytoqRv9AzUh4z2GD82Ul1X4%2FFqqycvQQ%3D%3D',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:03:50 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/db/Command.php on line 1293
+[16-Aug-2021 15:10:45 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 28. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Undefined variable: app in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php:29
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php(29): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/home/scrumcyb/...', 29, Array)
+#1 [internal function]: app\modules\employee\controllers\InformationController->actionIndex()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('employee/inform...', Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#8 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=806b99d9d2e55bc32af1cee55526c9dc; _csrf=7f877c5d6778e8981e7d8ce7e8f3ca91fd15ced03f1bd72c7e17a9e91c17242fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UGiJUtmMsZlZySOL2dCmKSeMNQIpesv-%22%3B%7D; eMulazimCookie=818362b83a8df88e1d953abe2f7dc85e7b4567af17b62e3fd2a1bb6c3747d95fa%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22437e6b1c65a347c8dc8b9d4cd2fd422d%22%3B%7D; _identity=56c5e9c02fd4c469bbd945a3a68837328db1fd72e3460654bfbd69520ceb5d32a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A23%3A%22%5B%227E16WL%22%2Ctrue%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/employee/information?securekey=nuRzvJ%2BgjnFk0kLLgBR8VzlkMWFiNTQwODdiMmE5ZDA3YTQ4NmUwZmQ2ZWNlZTM1YjlkMzQxOGIzZTk4ZWY4NzdlZDc3ZWYwMWU1NGUyZWK1%2FhNrCX7S%2BDySo98i1uHhkTlYFUeBslOq7G%2BhhNhlTQ%3D%3D&securekeyl=ilOClwyXbXjxIDsMA0txLjgzMTAxMWY3NTFjNTBmN2NmY2Y4NGVhNGFkMTZkMTFlNDgwYjE3NDUzNDU3MDAzMmFlMGU1MDc4Nzc4NTZkMWYVHhvH4NLgZlDQnckppU%2BfKi68lyffeicaj4uRawokAw%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:106.205.175.20',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRoyhJzzm_tLWhSpS2O5JQAAAVI',
+    'REDIRECT_SCRIPT_URL' => '/employee/information',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRoyhJzzm_tLWhSpS2O5JQAAAVI',
+    'SCRIPT_URL' => '/employee/information',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '106.205.175.20',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '38016',
+    'REDIRECT_URL' => '/employee/information',
+    'REDIRECT_QUERY_STRING' => 'securekey=5tEDS8Wd81p86LBvpTrJ3zNiMjU2YWE1ODVlY2JlNTBhZmU2Y2JmZTRhMGNlNTAwOTE3NGQ5YjZhZDZjMGJiNDA2NzVlMjNkMDA5ZTRhZTJ8u93d4UOP41IwA6GEiL%2FyNpHJgd3vwCZMXCzqPYtjdg%3D%3D&tab=info',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=5tEDS8Wd81p86LBvpTrJ3zNiMjU2YWE1ODVlY2JlNTBhZmU2Y2JmZTRhMGNlNTAwOTE3NGQ5YjZhZDZjMGJiNDA2NzVlMjNkMDA5ZTRhZTJ8u93d4UOP41IwA6GEiL%2FyNpHJgd3vwCZMXCzqPYtjdg%3D%3D&tab=info',
+    'REQUEST_URI' => '/employee/information?securekey=5tEDS8Wd81p86LBvpTrJ3zNiMjU2YWE1ODVlY2JlNTBhZmU2Y2JmZTRhMGNlNTAwOTE3NGQ5YjZhZDZjMGJiNDA2NzVlMjNkMDA5ZTRhZTJ8u93d4UOP41IwA6GEiL%2FyNpHJgd3vwCZMXCzqPYtjdg%3D%3D&tab=info',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629106820.460691928863525390625,
+    'REQUEST_TIME' => 1629106820,
+    'argv' => [
+        'securekey=5tEDS8Wd81p86LBvpTrJ3zNiMjU2YWE1ODVlY2JlNTBhZmU2Y2JmZTRhMGNlNTAwOTE3NGQ5YjZhZDZjMGJiNDA2NzVlMjNkMDA5ZTRhZTJ8u93d4UOP41IwA6GEiL%2FyNpHJgd3vwCZMXCzqPYtjdg%3D%3D&tab=info',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:11:19 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 28. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Undefined variable: app in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php:29
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php(29): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/home/scrumcyb/...', 29, Array)
+#1 [internal function]: app\modules\employee\controllers\InformationController->actionIndex()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('employee/inform...', Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#8 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=eb9664133d86705d30107919bb9b3e68; _csrf=4e14ff64340c5ecd7ce493508ef60d607df52b7d7b18b986e158032f91e20410a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_iZfh24ijB7m2hz_S36-U75sWfam9SN0%22%3B%7D; eMulazimCookie=818362b83a8df88e1d953abe2f7dc85e7b4567af17b62e3fd2a1bb6c3747d95fa%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22437e6b1c65a347c8dc8b9d4cd2fd422d%22%3B%7D; _identity=56c5e9c02fd4c469bbd945a3a68837328db1fd72e3460654bfbd69520ceb5d32a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A23%3A%22%5B%227E16WL%22%2Ctrue%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/employee/information/service?securekey=r3zx6kN1Ebfc%2BQas7oLnUWFjMzIzYmU4ZDg2ZTRjZDdhZWQ3MTJkYWM1NGYwMDdiN2U1NWYyNTkxODQ1YWQ2YTZjOWI3ODI3MGQ2MDUyYmF0tiiixTsc6wD3JiSNt1IbG6BwiMUMi4Ri1BO0fn3eyw%3D%3D&securekeyl=6HldDtCgWVxLGGW%2FmplDszFhMmMyZGMzNzAwMjczZjY5MjJmZjdhNGQxNWQxMzExZjAzNDRiZjk2OTNkYTdmY2ZjNjU1NzVjMzY3NTgxZDQ2Cc34vPd63Yt9q03ODeuUsVryG0%2Bq%2BXtKAULSg2eSAA%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:106.205.175.20',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRoyvwRfBdMdhg_chnUmAQAAAYU',
+    'REDIRECT_SCRIPT_URL' => '/employee/information',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRoyvwRfBdMdhg_chnUmAQAAAYU',
+    'SCRIPT_URL' => '/employee/information',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '106.205.175.20',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '41234',
+    'REDIRECT_URL' => '/employee/information',
+    'REDIRECT_QUERY_STRING' => 'securekey=kZhD7yt%2BUAkkzLWj9I1iKDUzZTVhZTNkZjM0YmVkODRkYjEyZDg5YmJlODMwNjQ3ZTY5ZTFiOGQyYmQwN2ExMzQwMDExNzUwNDgwMjUwMjQxVggC4dKvVzZ16xnT0Lii8nkdM9XguxrLvNo1tgYwsQ%3D%3D&securekeyl=UVREwIUAsM0972niLHKmg2JkMGM1YWU1NzIxYjRiMzVkMDRhYTE5ZmZmMTRiNzU3NGViM2FhNjEyZTQwNDc5ZmQ5YWY3Zjc3ZWIxYTIxOWICx45TUGNS5oaneWeoHrJ2IDD7TFMcpAtjIRt%2BiApAWw%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=kZhD7yt%2BUAkkzLWj9I1iKDUzZTVhZTNkZjM0YmVkODRkYjEyZDg5YmJlODMwNjQ3ZTY5ZTFiOGQyYmQwN2ExMzQwMDExNzUwNDgwMjUwMjQxVggC4dKvVzZ16xnT0Lii8nkdM9XguxrLvNo1tgYwsQ%3D%3D&securekeyl=UVREwIUAsM0972niLHKmg2JkMGM1YWU1NzIxYjRiMzVkMDRhYTE5ZmZmMTRiNzU3NGViM2FhNjEyZTQwNDc5ZmQ5YWY3Zjc3ZWIxYTIxOWICx45TUGNS5oaneWeoHrJ2IDD7TFMcpAtjIRt%2BiApAWw%3D%3D',
+    'REQUEST_URI' => '/employee/information?securekey=kZhD7yt%2BUAkkzLWj9I1iKDUzZTVhZTNkZjM0YmVkODRkYjEyZDg5YmJlODMwNjQ3ZTY5ZTFiOGQyYmQwN2ExMzQwMDExNzUwNDgwMjUwMjQxVggC4dKvVzZ16xnT0Lii8nkdM9XguxrLvNo1tgYwsQ%3D%3D&securekeyl=UVREwIUAsM0972niLHKmg2JkMGM1YWU1NzIxYjRiMzVkMDRhYTE5ZmZmMTRiNzU3NGViM2FhNjEyZTQwNDc5ZmQ5YWY3Zjc3ZWIxYTIxOWICx45TUGNS5oaneWeoHrJ2IDD7TFMcpAtjIRt%2BiApAWw%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629106879.755508899688720703125,
+    'REQUEST_TIME' => 1629106879,
+    'argv' => [
+        'securekey=kZhD7yt%2BUAkkzLWj9I1iKDUzZTVhZTNkZjM0YmVkODRkYjEyZDg5YmJlODMwNjQ3ZTY5ZTFiOGQyYmQwN2ExMzQwMDExNzUwNDgwMjUwMjQxVggC4dKvVzZ16xnT0Lii8nkdM9XguxrLvNo1tgYwsQ%3D%3D&securekeyl=UVREwIUAsM0972niLHKmg2JkMGM1YWU1NzIxYjRiMzVkMDRhYTE5ZmZmMTRiNzU3NGViM2FhNjEyZTQwNDc5ZmQ5YWY3Zjc3ZWIxYTIxOWICx45TUGNS5oaneWeoHrJ2IDD7TFMcpAtjIRt%2BiApAWw%3D%3D',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:11:26 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 28. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Undefined variable: app in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php:29
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php(29): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/home/scrumcyb/...', 29, Array)
+#1 [internal function]: app\modules\employee\controllers\InformationController->actionIndex()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('employee/inform...', Array)
+#6 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#8 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=eb9664133d86705d30107919bb9b3e68; _csrf=4e14ff64340c5ecd7ce493508ef60d607df52b7d7b18b986e158032f91e20410a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_iZfh24ijB7m2hz_S36-U75sWfam9SN0%22%3B%7D; eMulazimCookie=818362b83a8df88e1d953abe2f7dc85e7b4567af17b62e3fd2a1bb6c3747d95fa%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22437e6b1c65a347c8dc8b9d4cd2fd422d%22%3B%7D; _identity=56c5e9c02fd4c469bbd945a3a68837328db1fd72e3460654bfbd69520ceb5d32a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A23%3A%22%5B%227E16WL%22%2Ctrue%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/employee/information/service?securekey=r3zx6kN1Ebfc%2BQas7oLnUWFjMzIzYmU4ZDg2ZTRjZDdhZWQ3MTJkYWM1NGYwMDdiN2U1NWYyNTkxODQ1YWQ2YTZjOWI3ODI3MGQ2MDUyYmF0tiiixTsc6wD3JiSNt1IbG6BwiMUMi4Ri1BO0fn3eyw%3D%3D&securekeyl=6HldDtCgWVxLGGW%2FmplDszFhMmMyZGMzNzAwMjczZjY5MjJmZjdhNGQxNWQxMzExZjAzNDRiZjk2OTNkYTdmY2ZjNjU1NzVjMzY3NTgxZDQ2Cc34vPd63Yt9q03ODeuUsVryG0%2Bq%2BXtKAULSg2eSAA%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:106.205.175.20',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRoyxpzzm_tLWhSpS2O5MQAAAUo',
+    'REDIRECT_SCRIPT_URL' => '/employee/information',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRoyxpzzm_tLWhSpS2O5MQAAAUo',
+    'SCRIPT_URL' => '/employee/information',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '106.205.175.20',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '41638',
+    'REDIRECT_URL' => '/employee/information',
+    'REDIRECT_QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'REQUEST_URI' => '/employee/information?securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629106886.0194799900054931640625,
+    'REQUEST_TIME' => 1629106886,
+    'argv' => [
+        'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:12:51 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 28. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 28. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=eb9664133d86705d30107919bb9b3e68; _csrf=4e14ff64340c5ecd7ce493508ef60d607df52b7d7b18b986e158032f91e20410a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_iZfh24ijB7m2hz_S36-U75sWfam9SN0%22%3B%7D; eMulazimCookie=818362b83a8df88e1d953abe2f7dc85e7b4567af17b62e3fd2a1bb6c3747d95fa%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22437e6b1c65a347c8dc8b9d4cd2fd422d%22%3B%7D; _identity=56c5e9c02fd4c469bbd945a3a68837328db1fd72e3460654bfbd69520ceb5d32a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A23%3A%22%5B%227E16WL%22%2Ctrue%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/employee/information/service?securekey=r3zx6kN1Ebfc%2BQas7oLnUWFjMzIzYmU4ZDg2ZTRjZDdhZWQ3MTJkYWM1NGYwMDdiN2U1NWYyNTkxODQ1YWQ2YTZjOWI3ODI3MGQ2MDUyYmF0tiiixTsc6wD3JiSNt1IbG6BwiMUMi4Ri1BO0fn3eyw%3D%3D&securekeyl=6HldDtCgWVxLGGW%2FmplDszFhMmMyZGMzNzAwMjczZjY5MjJmZjdhNGQxNWQxMzExZjAzNDRiZjk2OTNkYTdmY2ZjNjU1NzVjMzY3NTgxZDQ2Cc34vPd63Yt9q03ODeuUsVryG0%2Bq%2BXtKAULSg2eSAA%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:171.48.108.92',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRozG5zzm_tLWhSpS2O5NgAAAVI',
+    'REDIRECT_SCRIPT_URL' => '/employee/information',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRozG5zzm_tLWhSpS2O5NgAAAVI',
+    'SCRIPT_URL' => '/employee/information',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '171.48.108.92',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '46336',
+    'REDIRECT_URL' => '/employee/information',
+    'REDIRECT_QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'REQUEST_URI' => '/employee/information?securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629106971.0793850421905517578125,
+    'REQUEST_TIME' => 1629106971,
+    'argv' => [
+        'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:14:45 Asia/Kolkata] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 27. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/ErrorHandler.php(123): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/scrumcyb/public_html/cdhrm/modules/employee/controllers/InformationController.php on line 27. in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/scrumcyb/public_html/cdhrm/index.php(55): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'PHPSESSID=eb9664133d86705d30107919bb9b3e68; _csrf=4e14ff64340c5ecd7ce493508ef60d607df52b7d7b18b986e158032f91e20410a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_iZfh24ijB7m2hz_S36-U75sWfam9SN0%22%3B%7D; eMulazimCookie=95fbb43dda5ef5eeeb5f62dca2e7ad140efdeefa3029b3bf0231817af8646b81a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22eMulazimCookie%22%3Bi%3A1%3Bs%3A32%3A%22e3abef9826d6c841fb2630423d214c83%22%3B%7D; _identity=56c5e9c02fd4c469bbd945a3a68837328db1fd72e3460654bfbd69520ceb5d32a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A23%3A%22%5B%227E16WL%22%2Ctrue%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_REFERER' => 'http://cdhrm.scrumcyber.com/employee/information/service?securekey=r3zx6kN1Ebfc%2BQas7oLnUWFjMzIzYmU4ZDg2ZTRjZDdhZWQ3MTJkYWM1NGYwMDdiN2U1NWYyNTkxODQ1YWQ2YTZjOWI3ODI3MGQ2MDUyYmF0tiiixTsc6wD3JiSNt1IbG6BwiMUMi4Ri1BO0fn3eyw%3D%3D&securekeyl=6HldDtCgWVxLGGW%2FmplDszFhMmMyZGMzNzAwMjczZjY5MjJmZjdhNGQxNWQxMzExZjAzNDRiZjk2OTNkYTdmY2ZjNjU1NzVjMzY3NTgxZDQ2Cc34vPd63Yt9q03ODeuUsVryG0%2Bq%2BXtKAULSg2eSAA%3D%3D',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'cdhrm.scrumcyber.com',
+    'HTTP_X_REAL_IP' => '::ffff:171.48.108.92',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'YRozjTb72sfWtRjbDCZkLwAAAIc',
+    'REDIRECT_SCRIPT_URL' => '/employee/information',
+    'REDIRECT_SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'YRozjTb72sfWtRjbDCZkLwAAAIc',
+    'SCRIPT_URL' => '/employee/information',
+    'SCRIPT_URI' => 'http://cdhrm.scrumcyber.com/employee/information',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'cdhrm.scrumcyber.com',
+    'SERVER_ADDR' => '78.46.84.83',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '171.48.108.92',
+    'DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/scrumcyb/public_html/cdhrm',
+    'SERVER_ADMIN' => 'webmaster@cdhrm.scrumcyber.com',
+    'SCRIPT_FILENAME' => '/home/scrumcyb/public_html/cdhrm/index.php',
+    'REMOTE_PORT' => '54664',
+    'REDIRECT_URL' => '/employee/information',
+    'REDIRECT_QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'REQUEST_URI' => '/employee/information?securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    'SCRIPT_NAME' => '/index.php',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1629107085.2106640338897705078125,
+    'REQUEST_TIME' => 1629107085,
+    'argv' => [
+        'securekey=9Ak75L91G7FUvWfODYUecmViM2JhYjQ1MzU4NzkzNGM5YzA5ZjZjNWJhODNiZjQ0ZjZkZDhlYTBiZGFkZmU5MWEyMDg1ZGIzMTQ1NjVjNTLHPrA61V1xUtFhTiEExou0hl4AwIfHLyFOH5QnSyAlxg%3D%3D&securekeyl=UnF4O4QRpFbcPopGxDrmiGY4Y2EwYTBjOTA0MmQzNzc0NGNkN2U5YTY0ZTk1MzA4Y2I2ODEzZDg1YmIzYWJiZTU0YTU1MjI0ZTgzM2U4NmIqw6%2FDoFOsu14Yo5e1TP%2F2oCaeWwl%2BQZvKhy7INqyXCw%3D%3D',
+    ],
+    'argc' => 1,
+]
+[16-Aug-2021 15:55:01 Asia/Kolkata] PHP Fatal error:  Cannot redeclare app\models\User::$belt_no in /home/scrumcyb/public_html/cdhrm/models/User.php on line 11
+[16-Aug-2021 15:55:03 Asia/Kolkata] PHP Fatal error:  Cannot redeclare app\models\User::$belt_no in /home/scrumcyb/public_html/cdhrm/models/User.php on line 11
+[16-Aug-2021 16:21:10 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/db/Command.php on line 1293
+[16-Aug-2021 16:22:34 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/db/Command.php on line 1293
+[16-Aug-2021 16:23:18 Asia/Kolkata] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/scrumcyb/public_html/cdhrm/vendor/yiisoft/yii2/db/Command.php on line 1293
