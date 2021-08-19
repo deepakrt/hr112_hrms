@@ -1,0 +1,299 @@
+<?php
+namespace app\components;
+use Yii;
+use yii\base\Component;
+use yii\web\Controller;
+use yii\base\InvalidConfigException;
+use yii\db\Query;
+use yii\web\Session;
+use yii\db\mssql\PDO;
+use yii\base\Security;
+class Tr_utility extends Component 
+{
+       
+
+    public function tr_get_technologies($Param_technology_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_technologies(:Param_technology_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_technology_id', $Param_technology_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+public function tr_get_courses($Param_course_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_courses(:Param_course_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_course_id', $Param_course_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+    public function tr_get_training_applied_status($Param_tpm_id,$Param_employee_code){
+        
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_training_applied_status(:Param_tpm_id,:Param_employee_code,@Result)";
+        
+        $command = $connection->createCommand($sql); 
+        $command->bindValue(':Param_tpm_id', $Param_tpm_id);
+        $command->bindValue(':Param_employee_code', $Param_employee_code);
+        
+      
+
+        $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+    
+    public function tr_get_departments($Param_department_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_departments(:Param_department_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_department_id', $Param_department_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+public function tr_get_trainers($Param_trainer_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_trainers(:Param_trainer_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_trainer_id', $Param_trainer_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+    public function tr_get_trainingprograms($Param_tpm_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_trainingprograms(:Param_tpm_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_tpm_id', $Param_tpm_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+     public function tr_get_trainingprogram_role($Param_role_id=NULL){
+        $connection=   Yii::$app->db;
+        $connection->open();
+        $sql =" CALL tr_get_trainingprogram_role(:Param_role_id)";
+        
+        $command = $connection->createCommand($sql); 
+       $command->bindValue(':Param_role_id', $Param_role_id);
+        
+      
+
+            $result=$command->queryAll();
+       
+        
+        $connection->close();
+        return $result; 
+    }
+
+    
+    public function tr_apply_trainingprogram($Param_tpm_id, $Param_employee_code,$Param_status,$Param_action_type,$Param_applied_id=0){
+
+        $connection= Yii::$app->db;
+        $connection->open();
+
+
+        $sql =" CALL `tr_add_update_training_applied`(:Param_tpm_id,:Param_employee_code,:Param_status,:Param_action_type, :Param_applied_id , @Result )";
+        
+        $command = $connection->createCommand($sql); 
+        $command->bindValue(':Param_tpm_id', $Param_tpm_id);
+        $command->bindValue(':Param_employee_code', $Param_employee_code);
+        $command->bindValue(':Param_status', $Param_status);
+        $command->bindValue(':Param_action_type', $Param_action_type);
+
+        if($Param_action_type == 'ADD')
+        {
+            $Param_applied_id = 0;
+        }
+        $command->bindValue(':Param_applied_id', $Param_applied_id);
+        
+        
+        
+        $command->execute();
+        $valueOut = $connection->createCommand("select @Result as ress;")->queryScalar();
+        $connection->close();
+        return $valueOut; 
+
+
+    }
+    
+    public function tr_get_training_by_applied_id_action($Param_tpm_id, $Param_employee_code, $Param_applied_id)
+    {
+
+        $connection= Yii::$app->db;
+        $connection->open();
+        //var_dump($Param_employee_code); die;
+
+        $sql =" CALL `tr_get_training_by_applied_id_action`(:Param_tpm_id,:Param_employee_code,:Param_applied_id )";
+        
+        $command = $connection->createCommand($sql); 
+        
+        $command->bindValue(':Param_tpm_id', $Param_tpm_id);
+        $command->bindValue(':Param_employee_code', $Param_employee_code);
+        $command->bindValue(':Param_applied_id', $Param_applied_id);
+        
+        
+        $result=$command->queryOne();
+         // $result=$command->queryAll();
+       
+        
+        $connection->close();
+        // die();
+
+        return $result; 
+    }
+
+
+// tr_get_all_training_applied_action
+
+    public function tr_get_all_training_applied_action( $Param_employee_code)
+    {
+        $connection= Yii::$app->db;
+        $connection->open();
+
+        $sql =" CALL `tr_get_training_applied_action`(:Param_employee_code,:Param_reporting, @Result )";
+        
+        $command = $connection->createCommand($sql); 
+        
+        $command->bindValue(':Param_employee_code', $Param_employee_code);
+        $command->bindValue(':Param_reporting', $Param_reporting);
+        
+        $result=$command->queryAll();
+       
+        $connection->close();
+        return $result; 
+    }
+
+    public function tr_get_training_applied_action( $Param_employee_code,$Param_reporting)
+    {
+        $connection= Yii::$app->db;
+        $connection->open();
+
+        $sql =" CALL `tr_get_training_applied_action`(:Param_employee_code,:Param_reporting, @Result )";
+        
+        $command = $connection->createCommand($sql); 
+        
+        $command->bindValue(':Param_employee_code', $Param_employee_code);
+        $command->bindValue(':Param_reporting', $Param_reporting);
+        
+        
+        $result=$command->queryAll();
+       
+        $connection->close();
+        return $result; 
+
+
+    }
+    
+
+
+    public function tr_add_update_technology($Param_technology_id, $Param_action_type, $Param_technology_name, $Param_technology_code){
+         $connection= Yii::$app->db;
+        $connection->open();
+
+        //Param_technology_id
+
+
+        $sql =" CALL `tr_add_update_technology`(:Param_technology_id,:Param_action_type,:Param_technology_name, :Param_technology_code, @Result )";
+        
+        $command = $connection->createCommand($sql); 
+        $command->bindValue(':Param_technology_name', $Param_technology_name);
+        $command->bindValue(':Param_technology_code', $Param_technology_code);
+        $command->bindValue(':Param_action_type', $Param_action_type);
+        $command->bindValue(':Param_technology_id', $Param_technology_id);
+
+        
+        
+        $command->execute();
+        $valueOut = $connection->createCommand("select @Result as ress;")->queryScalar();
+        $connection->close();
+        return $valueOut; 
+    }
+
+     public function tr_add_update_trainingprogram($Param_action_type , $Param_tpmid, $Param_course_id, $Param_technology_id, $Param_course_code,$Param_startDate,$Param_endDate, $Param_startTime, $Param_endTime, $Param_training_fees, $Param_installment, $Param_trainer_id, $Param_trainer_amt, $Param_department_id, $Param_seats, $Param_role_id){
+         $connection= Yii::$app->db;
+        $connection->open();
+
+        //Param_technology_id
+
+
+        $sql =" CALL `tr_add_update_training_program`(:Param_action_type , :Param_tpmid, :Param_course_id, :Param_technology_id, :Param_course_code,:Param_startDate,:Param_endDate, :Param_startTime, :Param_endTime, :Param_training_fees, :Param_installment, :Param_trainer_id, :Param_trainer_amt, :Param_department_id, :Param_seats, :Param_role_id, @Result )";
+        
+        $command = $connection->createCommand($sql); 
+        $command->bindValue(':Param_action_type', $Param_action_type);
+        $command->bindValue(':Param_tpmid', $Param_tpmid);
+        $command->bindValue(':Param_course_id', $Param_course_id);
+        $command->bindValue(':Param_technology_id', $Param_technology_id);
+
+         $command->bindValue(':Param_course_code', $Param_course_code);
+        $command->bindValue(':Param_startDate', $Param_startDate);
+
+        $command->bindValue(':Param_endDate', $Param_endDate);
+        $command->bindValue(':Param_startTime', $Param_startTime);
+         $command->bindValue(':Param_endTime', $Param_endTime);
+
+        $command->bindValue(':Param_training_fees', $Param_training_fees);
+        $command->bindValue(':Param_installment', $Param_installment);
+        $command->bindValue(':Param_trainer_id', $Param_trainer_id);
+         $command->bindValue(':Param_trainer_amt', $Param_trainer_amt);
+        $command->bindValue(':Param_department_id', $Param_department_id);
+
+        $command->bindValue(':Param_seats', $Param_seats);
+        $command->bindValue(':Param_role_id', $Param_role_id);
+
+        
+      
+        $command->execute();
+        $valueOut = $connection->createCommand("select @Result as ress;")->queryScalar();
+        $connection->close();
+        return $valueOut; 
+    }
+    
+}
