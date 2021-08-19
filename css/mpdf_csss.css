@@ -1,0 +1,221 @@
+/*body{font-size: 14px;}*/
+/*.greensheet 
+{
+    background: #cfefc6;
+    overflow:hidden;
+    height:auto;
+}*/
+/*@page :first {
+    background: #cfefc6;
+}*/
+/*@page {
+    background:green;
+}*/
+.hindi{
+     font-family: freeserif; 
+}
+table{
+    font-size: 12px;
+}
+.sanFont{font-size: 12px; font-family:arial;}
+.innertitle {
+    padding: 2px;
+    /*border-bottom: 1px dotted #F27024;*/
+    border-bottom: 1px solid #000;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #164988;
+    border-right: 0.5px solid #000;
+    border-left: 0.5px solid #000;
+}
+.colorforcom
+{
+    color: red;
+}
+h4{padding: 0px; margin: 0px;}
+p{margin:0px;}
+.mpdf_width{ width:100%; }
+.mpdf_border{border:1px solid #000; }
+.mpdf_border_coll{border-collapse: collapse; overflow: wrap;}
+.mpdf_tc{text-align: center;}
+table tr td{padding: 5px;}
+.header_left{
+    width:25%;
+    float: left;
+}
+.header_right{
+    width:20%;
+    float: right;
+}
+.headerdiv{
+    width: 100%;
+}
+.headerdivLeft{
+    width: 12%;
+    float: left;
+}
+.divLeft{
+    width: 50%;
+    float: left;
+}
+.divright{
+    width: 50%;
+    float: right;
+}
+.headerdivright{
+    width: 15%;
+    float: right;
+}
+.headerdivcenter{
+    width: 75%;
+/*    float: c;*/
+}
+.divclear{clear: both;}
+.mpdf_inner_title{
+    text-decoration: underline;
+}
+
+.bTwL{width: 40%;}
+.textbold{font-weight: bold;}
+.hrline {
+    background: #ED865D;
+    height: 2px;
+    width: auto;
+}
+.text-justify{
+    text-align: justify;
+}
+.text-center{
+    text-align: center;
+}
+
+.footerDept{
+    color:lightgrey;
+    font-size:10px;
+    width:50%
+}
+.footerPage{
+    color:lightgrey;
+    font-size:10px;
+    width:25%
+}
+.footerDate{
+    color:lightgrey;
+    font-size:10px;
+    width:24%
+}
+.mpdfheader{
+    color:lightgrey;
+    font-size:10px;
+    text-align: right;
+}
+h1, h2, h3, h4, h5, h6{
+    padding: 0px;
+    margin: 0px;
+}
+.docimage{
+    margin-top: 45px;
+    width: 100%;
+    height: 400px;
+}
+.docimagetitle{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+}
+.borderbottom{
+    border-bottom: 1px dotted lightgrey;
+}
+
+.mark_red{
+    color:red;
+}
+.subname{
+    font-size: 10px;
+}
+
+
+.listlogo{
+    width:20%;
+}
+.text-right{
+    text-align: right;
+}
+.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.col-sm-12 {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+.col-sm-4 {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 33.333333%;
+	flex: 0 0 33.333333%;
+	max-width: 33.333333%;
+}
+.table{
+	width:100%;
+border:1px solid #000; 
+border-collapse: collapse; overflow: wrap;
+}
+.table-bordered {
+	border: 1px solid #dee2e6;
+}
+.table tbody {
+	display: table-row-group;
+	vertical-align: middle;
+}
+.table tr {
+	display: table-row;
+	vertical-align: inherit;
+}
+
+.table th, .table td {
+	padding: 5px 10px;
+	font-size: 14px;
+}
+.table-bordered td, .table-bordered th {
+	border: 1px solid #dee2e6;
+}
+
+.plineheight{
+    line-height: 25px;
+}
+.sanwidth{
+    width: 35%;
+}
+
+.boqheader{
+    font-size: 30px !important;
+    font-weight: bold;
+}
+.pdfSubsidyTitle{
+    font-size: 12px !important;
+}
+.inpunjabi{
+    display: none;
+}
+.fileinfo{
+	list-style:none;
+	padding:0px;
+}
+.fileinfo li {
+	display: inline-grid;
+	width: 24%;
+	margin-bottom: 10px;
+}
+.hrline{
+    background: #ED865D; height: 2px; width:100%;
+}

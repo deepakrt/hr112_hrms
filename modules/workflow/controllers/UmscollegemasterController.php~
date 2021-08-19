@@ -1,0 +1,58 @@
+<?php
+
+namespace app\modules\workflow\controllers;
+use yii;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+class UmscollegemasterController extends Controller
+{
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+           
+             'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    // allow authenticated users
+                    [
+                        'allow' => TRUE,
+//                        'roles' => ['@'],
+//                        'actions' => ['@'],
+                        'denyCallback' => function ($rule, $action) {
+                                try {
+                                    return $this->redirect($url = \Yii::$app->homeUrl);
+                                } catch (Exception $ex) {
+                                    throw new Exception(500, $ex);
+                                }
+                            },
+                        'matchCallback' => function($rule, $action){
+                            try {
+                                $chk = Yii::$app->Utility->chkUserAccess();
+                                       return $chk;
+//                                if(isset(Yii::$app->user->identity) AND !empty(Yii::$app->user->identity)){
+//                                    return true;
+//                                }else{
+//                                    return false;
+//                                }
+                            }catch (Exception $ex) {
+                                throw new Exception(500, $ex);
+                            }
+                        },
+                    ],
+                ],
+            ]
+        ];
+    }
+    
+    public function actionIndex()
+    {
+    
+    }
+    }

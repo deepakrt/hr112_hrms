@@ -1,0 +1,13 @@
+<?php
+
+namespace app\modules\workflow\controllers;
+
+use yii\web\Controller;
+
+class GrademasteractionController extends Controller
+{
+    public function actionIndex($menu_id)
+    {
+        return $this->render('index',array('menuid'=>$menu_id));
+    }
+}

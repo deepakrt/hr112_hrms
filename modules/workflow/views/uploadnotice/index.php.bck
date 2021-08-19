@@ -1,0 +1,178 @@
+<?php
+echo \app\components\Topbarwidget::widget(array('menuid'=>$menuid)); 
+echo \app\components\Sidebarwidget::widget(array('menuid'=>$menuid));
+$homeUrl = Yii::$app->homeUrl;
+
+//$action_url = Yii::$app->getrequest()->getPathInfo();
+
+
+
+?>
+
+<div  style="margin-top:7%" class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading respantit">
+            <h3 class="panel-title">Create Faculty</h3>
+            </div>
+            <span id='widgetversion_1_0_error_block' >
+            <div class="alert alert-error error_main" id="error_main" style="display:none">  
+            <ul id="widget_error_main_inner" >
+            </ul>
+            </div>         
+            </span>
+            
+   <div class="panel-body">
+    <div style="font-weight:bold ;padding:10px;">Enter Department/Branch Details</div>      	
+		
+   <?php
+        foreach (Yii::$app->session->getAllFlashes() as $key => $message)
+        echo '<div class="col-sm-12" ><div class="text-center alert alert-' . $key . '">' . $message . '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
+            
+    ?> 
+        <form method="post" action="<?php echo $homeUrl?>/workflow/umsfacultymaster/insert" name="frm" id="frm">
+            <input type="hidden"  class="form-control" readonly="" name="secureKey" value="<?=  base64_encode($menuid)?>" />
+            <input type="hidden"  class="form-control" readonly="" name="secureHash" value="<?=Yii::$app->Utility->getHashInsert($menuid)?>" />
+            <input type="hidden" id="_csrf1" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>"/>
+            <div style="margin-top: 10px;" class="col-lg-12">
+            <div style="color:red" id="errmsg"></div>
+            </div>
+            <div style="margin-top: 10px;" class="col-lg-12">
+            </div>
+            <div style="font-weight: bold; padding: 10px;">Select Faculty's Role<span class="required">*</span></div>
+            <div style="margin-top: 10px;" class="col-lg-12">
+            <div style="font-weight:300;color: " class="col-lg-2">
+            </div>
+            <div class="col-lg-4">
+            <select style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_roleName" name="roleName">
+            <option value="">Select Role</option>
+            <option value="College Faculty">College Faculty</option>
+            <option value="Branch Administrator">Branch Administrator</option>
+            <option value="Branch Assistant">Branch Assistant</option>
+            </select>
+            </div>
+            </div><div style="margin-top: 10px;" class="col-md-12">
+
+            <div class="col-md-2"></div>
+            <div class="col-md-8"></div>
+            </div>
+            <div style="font-weight: bold; padding: 10px;">Enter Faculty's Personal Details</div>
+            <div style="margin-top: 10px;" class="col-lg-12">
+            <div style="font-weight: 300;" class="col-lg-2">First Name<span class="required">*</span></div>
+            <div class="col-lg-4">
+            <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_firstName" value="" name="fac.firstName">
+            </div>
+
+            <div style="font-weight: 300;" class="col-lg-2">Last Name<span class="required">*</span></div>
+            <div class="col-lg-4">
+                <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_lastName" value="" name="fac.lastName">
+		</div>
+
+		</div><div style="margin-top: 10px;" class="col-lg-12">
+		<div style="font-weight: 300;" class="col-lg-2">Gender<span class="required">*</span></div>
+		<div class="col-lg-4">
+		<select style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_gender" name="fac.gender">
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                </select>
+                </div>
+
+		<div style="font-weight: 300;" class="col-lg-2">DOB<span class="required">*</span></div>
+		<div class="col-lg-4">
+							        
+                <span style="white-space:nowrap" >
+                <input type="text" autocomplete="off" id="dob" style="width: 100px;" value="" > </span>
+                </div>
+                </div><div style="margin-top: 10px;" class="col-lg-12">
+		<div style="font-weight: 300;" class="col-lg-2">Contact No.<span class="required">*</span></div>
+		<div class="col-lg-4">
+                    <input type="text" max="10" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_contactNo" value="" maxlength="10" name="fac.contactNo">
+		</div>
+                <div style="font-weight: 300;" class="col-lg-2">Email ID<span class="required">*</span></div>
+		<div class="col-lg-4">
+		<input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_emailId" value="" name="fac.emailId">
+		</div></div><div style="margin-top: 10px;" class="col-lg-12">
+
+		<div style="font-weight: 300;" class="col-lg-2">Address<span class="required">*</span></div>
+		<div class="col-lg-4">
+		<textarea style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_address" rows="5" cols="20" name="fac.address"></textarea>
+		</div>
+
+		</div><div style="margin-top:10px;" class="col-md-12">
+      
+            <div class="col-md-2"></div>
+            <div class="col-md-8"></div></div><div style="font-weight:bold ;padding:10px;">Family Details</div><div style="margin-top:10px;" class="col-lg-12">
+            <div style="font-weight:300;" class="col-lg-2">Father Name<span class="required">*</span></div>
+      
+            <div class="col-lg-4">
+      
+            <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_fatherName" value="" name="fac.fatherName">
+            </div>
+      
+      
+            <div style="font-weight:300;" class="col-lg-2">Mother Name<span class="required">*</span></div>
+            <div class="col-lg-4">
+                <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_motherName" value="" name="fac.motherName">
+            </div>
+      
+            </div><div style="margin-top:10px;" class="col-lg-12">
+           
+            <div style="font-weight:300;" class="col-lg-2">Father's Email<span class="required">*</span></div>
+            <div class="col-lg-4">
+            <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_fatherEmail" value="" name="fac.fatherEmail">
+            </div>
+      
+      
+            <div style="font-weight:300;" class="col-lg-2">Father's DOB<span class="required">*</span></div>
+      
+            <div class="col-lg-4">
+              
+            <span style="white-space:nowrap" >
+            <input type="text" id="fatherDob" autocomplete="off"  style="width: 100px;" value="" name=""> </span>
+
+
+            </div>
+            </div><div style="margin-top:10px;" class="col-md-12">
+      
+            <div class="col-md-2"></div>
+            <div class="col-md-8"></div></div>
+            <div style="font-weight: bold; padding: 10px;">Enter Faculty's Joining Details</div>
+            <div style="margin-top: 10px;" class="col-lg-12">
+            <div style="font-weight: 300;" class="col-lg-2">College<span class="required">*</span></div>
+            <div class="col-lg-4">
+            <select onchange="getDepartments()" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="clgId" name="fac.collegeInfo.collegeId">
+            <option value="">Select Campus Name</option>
+            <option value="1">UIET</option>
+
+
+            </select>
+            </div>
+            <div style="font-weight: 300;" class="col-lg-2">Faculty Code<span class="required">*</span></div>
+            <div class="col-lg-4">
+            <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_empCode" value="" name="fac.empCode">
+            </div>
+            </div><div style="margin-top: 10px;" class="col-lg-12">
+            <div style="font-weight: 300;" class="col-lg-2">Date of Joining<span class="required">*</span></div>
+            <div class="col-lg-4">
+							        
+            <span style="white-space:nowrap" >
+            <input type="text" autocomplete="off"  id="doj" style="width: 100px;" value="" name=""></span>
+            </div>
+            <div style="font-weight: 300;" class="col-lg-2">Designation<span class="required">*</span></div>
+            <div class="col-lg-4">
+            <input type="text" style="height:35px;width:100%;background:#fff;color:#999999;font-family:Roboto;font-size: 16px;" id="frm_fac_designation" value="" name="fac.designation">
+            </div>
+
+            </div><div style="margin-top: 10px;" class="col-lg-12">
+
+            </div><div style="margin-top: 10px;" class="col-md-12">
+            <div class="col-md-2"></div>
+		<div class="col-md-8">
+		<input type="submit" onclick="return validate_facultyMaster()" value="Save" id="frm_0" class="btn btn-primary">
+		<?php echo "<a class='btn btn-default' href= $homeUrl>Cancel</a>"; ?>
+		</div>
+
+            </div>
+    </form>
+</div>
+</div></div>

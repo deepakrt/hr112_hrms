@@ -1,0 +1,308 @@
+<?php
+namespace app\modules\employee\controllers;
+use yii;
+
+class TrainingsController extends \yii\web\Controller
+{
+    public function beforeAction($action){
+        if(isset($_GET['securekey']) AND !empty($_GET['securekey'])){
+            $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+            if(empty($menuid)){ return $this->redirect(Yii::$app->homeUrl); }            
+            $chkValid = Yii::$app->utility->validate_url($menuid);
+            if(empty($chkValid)){ return $this->redirect(Yii::$app->homeUrl); }
+            return true;
+        }else{ return $this->redirect(Yii::$app->homeUrl); }
+        parent::beforeAction($action);
+    }
+    
+    public function actionIndex(){
+
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+        $tpms = Yii::$app->tr_utility->tr_get_trainingprogram_role(3);
+       
+        return $this->render('index', ['menuid'=>$menuid,'tpms'=>$tpms]);
+    }
+    public function actionTrainingrequest(){
+
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+        $employee_code = Yii::$app->user->identity->employee_code;
+
+        $current_employee_code = Yii::$app->user->identity->employee_code;
+        $current_employee_role_name = Yii::$app->user->identity->role_name;
+
+        if($current_employee_role_name == 'FLA')
+        {
+            $role_name='fla';
+        }
+        else
+        {
+            $role_name='sla';
+        }
+
+        $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,$role_name);
+        
+        /*echo "<pre>";
+         print_r($tpms);
+
+        die();*/
+
+
+        return $this->render('trainingrequest', ['menuid'=>$menuid,'tpms'=>$tpms]);
+    }
+
+    public function actionTrainingview(){
+
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+        
+        // $employee_code = Yii::$app->user->identity->employee_code;        
+        // $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,'fla');
+        // echo '<pre>';
+        // print_r($_GET);
+        // die();
+
+        $tpms = '';
+
+        if(isset($_GET['tpm_id']))
+        {
+            // $employee_code = Yii::$app->user->identity->employee_code;
+
+            $employee_code = $_GET['emp_code'];
+            $applied_id = $_GET['applied_id'];
+            $tpm_id = $_GET['tpm_id'];
+
+            $employee_code = Yii::$app->utility->decryptString($employee_code);
+            $applied_id = Yii::$app->utility->decryptString($applied_id);
+            $tpm_id = Yii::$app->utility->decryptString($tpm_id);
+            
+
+            $tpms = Yii::$app->tr_utility->tr_get_training_by_applied_id_action($tpm_id, $employee_code, $applied_id);
+            
+
+            // $employee_code = Yii::$app->user->identity->employee_code;
+            // $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,'fla');
+           
+
+
+        }
+       
+        return $this->render('trainingview', ['menuid'=>$menuid,'tpms'=>$tpms,'back_url_text'=>'trainingrequest']);
+    }
+
+    public function actionTrainingmultirequestaction()
+    {
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+
+        $tpms = '';
+
+       /*echo "<pre>";
+       print_r($_POST);
+
+       die();*/
+
+        $status_pass = 'No Respond.';
+        $status = 0;
+        $msgData = 'Please check carefully and try again.';
+        $status_name = '';
+
+        $statusVal = 0;
+
+        if(isset($_POST['combian_data']))
+        {
+            if(isset($_POST['parameter']))
+            {
+                $status = $_POST['parameter'];
+            }
+
+            $status_pass='Rejected';
+
+
+            $current_employee_code = Yii::$app->user->identity->employee_code;
+            $current_employee_role_name = Yii::$app->user->identity->role_name;
+
+            if($current_employee_role_name == 'FLA')
+            {
+                $status_name='Recommended';
+            }
+            elseif($current_employee_role_name == 'SLA')
+            {
+                $status_name='Approved';
+            }
+
+
+            if($status == 1)
+            {
+                $status_pass = $status_name;
+            }
+
+            $statusVal = '000';
+            $msgData = 'Record has been successfully updated with '.$status_pass.'.';
+
+            // foreach($_POST['combian_data'] as $combian_data)
+            
+            $combian_data = $_POST['combian_data'];
+            $countcombian_data = count($combian_data);
+
+            for($prv=0;$prv<$countcombian_data;$prv++)
+            {
+
+                $rec = explode('_',$combian_data[$prv]);
+
+
+                $employee_code = $rec[0];
+                $applied_id = $rec[1];
+                $tpm_id = $rec[2];
+                $status = $status_pass;
+
+
+                /*echo "<pre>";
+                print_r($_GET);*/
+
+
+                $employee_code = Yii::$app->utility->decryptString($employee_code);
+                $applied_id = Yii::$app->utility->decryptString($applied_id);
+                $tpm_id = Yii::$app->utility->decryptString($tpm_id);
+                
+                // die();
+
+                Yii::$app->tr_utility->tr_apply_trainingprogram($tpm_id, $employee_code, $status, 'Edit', $applied_id);                    
+
+            }
+
+        }
+
+        $return['STATUS_ID'] = $statusVal;
+        $return['STATUS_MESSAGE'] = $msgData;
+        echo json_encode($return); 
+
+       
+       // return $this->render('trainingview', ['menuid'=>$menuid,'tpms'=>$tpms]);
+    }
+
+
+    public function actionTrainingrequestaction()
+    {
+
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+               
+
+        $tpms = '';
+
+        if(isset($_GET['tpm_id']))
+        {
+            // $employee_code = Yii::$app->user->identity->employee_code;
+
+            $employee_code = $_GET['emp_code'];
+            $applied_id = $_GET['applied_id'];
+            $tpm_id = $_GET['tpm_id'];
+            $status = $_GET['status'];
+
+
+            /*echo "<pre>";
+            print_r($_GET);*/
+
+
+            $employee_code = Yii::$app->utility->decryptString($employee_code);
+            $applied_id = Yii::$app->utility->decryptString($applied_id);
+            $tpm_id = Yii::$app->utility->decryptString($tpm_id);
+            
+            // die();
+
+            Yii::$app->tr_utility->tr_apply_trainingprogram($tpm_id, $employee_code, $status, 'Edit', $applied_id);                    
+
+            $tpms = Yii::$app->tr_utility->tr_get_training_by_applied_id_action($tpm_id, $employee_code, $applied_id);
+        }
+       
+        return $this->render('trainingview', ['menuid'=>$menuid,'tpms'=>$tpms]);
+    }
+
+    public function actionApplyfortraining(){
+
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+
+
+
+        if(isset($_GET['tpm_id'])){
+                $employee_code = Yii::$app->user->identity->employee_code;
+                $tpm_id = $_GET['tpm_id'];
+                
+                Yii::$app->tr_utility->tr_apply_trainingprogram($tpm_id,$employee_code,'Applied','Add');
+        }
+        return $this->redirect(Yii::$app->homeUrl."employee/trainings?securekey=$menuid");
+    }
+
+    public function actionViewtrainingstatus()
+    {
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+        $employee_code = Yii::$app->user->identity->employee_code;
+
+        $current_employee_code = Yii::$app->user->identity->employee_code;
+        $current_employee_role_name = Yii::$app->user->identity->role_name;
+
+       
+        $role_name='flasla';
+       
+        $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,$role_name);
+        
+        /*echo "<pre>";
+         print_r($tpms);
+
+        die();*/
+
+
+        return $this->render('viewtrainingstatus', ['menuid'=>$menuid,'tpms'=>$tpms]);
+    }
+
+    public function actionTrainingstatusview(){
+
+        $this->layout = '@app/views/layouts/admin_layout.php';
+        $menuid = Yii::$app->utility->decryptString($_GET['securekey']);
+        $menuid = Yii::$app->utility->encryptString($menuid);
+        
+        // $employee_code = Yii::$app->user->identity->employee_code;        
+        // $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,'fla');
+        // echo '<pre>';
+        // print_r($_GET);
+        // die();
+
+        $tpms = '';
+
+        if(isset($_GET['tpm_id']))
+        {
+            // $employee_code = Yii::$app->user->identity->employee_code;
+
+            $employee_code = $_GET['emp_code'];
+            $applied_id = $_GET['applied_id'];
+            $tpm_id = $_GET['tpm_id'];
+
+            $employee_code = Yii::$app->utility->decryptString($employee_code);
+            $applied_id = Yii::$app->utility->decryptString($applied_id);
+            $tpm_id = Yii::$app->utility->decryptString($tpm_id);
+            
+
+            $tpms = Yii::$app->tr_utility->tr_get_training_by_applied_id_action($tpm_id, $employee_code, $applied_id);
+            
+
+            // $employee_code = Yii::$app->user->identity->employee_code;
+            // $tpms = Yii::$app->tr_utility->tr_get_training_applied_action($employee_code,'fla');
+           
+
+
+        }
+       
+        return $this->render('trainingview', ['menuid'=>$menuid,'tpms'=>$tpms, 'back_url_text'=>'viewtrainingstatus']);
+    }
+
+}

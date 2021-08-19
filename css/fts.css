@@ -1,0 +1,81 @@
+
+	
+.fileinfo{
+	list-style:none;
+	padding:0px;
+}
+.fileinfo li {
+	display: inline-table;
+	width: 24%;
+	margin-bottom: 10px;
+}
+.dept_emp_list{
+	list-style:none;
+	padding:0px;
+}
+
+
+.dept_emp_list li {
+	display: inline-table;
+	width: 32%;
+	margin-bottom: 10px;
+}
+.exitlist{
+	list-style:none;
+	padding:0px;
+}
+.exitlist li {
+	display: inline-table;
+	width: 49%;
+	margin-bottom: 10px;
+}
+.movementli{
+	list-style:none;
+	padding:0px;
+}
+.movementli li {
+	display: inline-table;
+	width: 24%;
+	margin-bottom: 10px;
+}
+
+.greensheet {
+	background: #cfefc6;
+	overflow:auto;
+	height:600px;
+}
+
+.emplist {
+	overflow: auto;
+	max-height: 300px;
+}
+#grp_emp_dept_for_select {
+	overflow: auto;
+	max-height: 200px;
+}
+
+#grp_emp_for_final {
+	list-style: none;
+	padding: 0;
+}
+#grp_emp_for_final li {
+	display: inline-table;
+	width: 32%;
+	margin-bottom: 10px;
+}
+
+.borderright {
+    border-right: 1px solid #ED865D;
+}
+
+.remarktable{
+	min-height: 500px;
+	overflow:auto;
+}
+
+.hindishow {
+    font-size: 14px;
+}
+.hindishow12 {
+    font-size: 12px;
+}
